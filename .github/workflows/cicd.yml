@@ -27,6 +27,12 @@ jobs:
     - run: npm ci
     - run: npm run build
 
+    - name: Deploy frontend
+      run: |
+        rm -rf /var/www/connectGPT/*
+        cp -r dist/* /var/www/connectGPT/
+
+
     - name: Clean workspace
       if: always()
       run: |
